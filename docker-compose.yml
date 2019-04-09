@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  web_apps:
+    image: wicksome/spring-boot-gradle-example:latest
+    build:
+      context: ./spring-boot-gradle-example
+    ports:
+      - 8080
+  nginx:
+    image: wicksome/nginx-reverse-proxy-example:latest
+    build:
+      context: ./nginx-reverse-proxy-example
+    ports:
+      - 8888:80
+    links:
+      - web_apps
