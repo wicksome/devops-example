@@ -9,6 +9,10 @@ docker network create devops
 # 실행하기
 
 ```
+devops.sh start
+devops.sh stop
+devops.sh restart
+devops.sh deploy
 ```
 
 # 활용방안
