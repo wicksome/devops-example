@@ -1,0 +1,4 @@
+[submodule "spring-boot-gradle-example"]
+	path = spring-boot-gradle-example
+	url = https://github.com/wicksome/spring-boot-gradle-example
+
