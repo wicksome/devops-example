@@ -4,16 +4,21 @@ services:
     image: wicksome/nginx-http-server-example:latest
     build:
       context: ./nginx-http-server-example
-    # volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 8888:80
-    links:
-      - springboot:springboot
+      - 9000:80
+    networks:
+      - devops
+      - backend
   springboot:
     image: wicksome/spring-boot-gradle-example:latest
     build:
       context: ./spring-boot-gradle-example
     ports:
       - 8080
-  
+    networks:
+      - backend
+networks:
+  backend:
+  devops:
+    external:
+      name: devops

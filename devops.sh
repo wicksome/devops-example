@@ -1,18 +1,28 @@
 #!/bin/sh
 
-USER="service"
-
-stop() {  # -c 옵션은 해당 USER로 실행함을 의미.
-    # sudo su - $USER -c "# something to stop"
-    docker stop web
+stop() {
+    (cd proxy && docker-compose down)
+    (cd service && docker-compose down)
 }
 
-start() {  
-    docker run container
+start() {
+    # proxy
+    if [ -n "$(cd proxy && docker-compose ps -q)" ]; then
+        echo "proxy is running"
+    else
+        (cd proxy && docker-compose up -d)
+    fi
+    # service
+    if [ -n "$(cd service && docker-compose ps -q)" ]; then
+        echo "service is running"
+    else
+        (cd service && docker-compose up -d)
+    fi
 }
 
 deploy() {
-    start
+    (cd proxy && docker-compose down && docker-compose build --no-cache && docker-compose up -d)
+    (cd service && docker-compose down && docker-compose build --no-cache && docker-compose up -d)
 }
 
 case "$1" in  
