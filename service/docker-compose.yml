@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  nginx:
+    image: wicksome/nginx-http-server-example:latest
+    build:
+      context: ./nginx-http-server-example
+    # volumes:
+      # - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8888:80
+    links:
+      - springboot:springboot
+  springboot:
+    image: wicksome/spring-boot-gradle-example:latest
+    build:
+      context: ./spring-boot-gradle-example
+    ports:
+      - 8080
+  

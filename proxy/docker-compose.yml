@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  proxy:
+    image: wicksome/haproxy-example:latest
+    build:
+      context: .
+    ports:
+      - 8080:8080
+      - 8088:80
