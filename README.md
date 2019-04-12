@@ -1,5 +1,8 @@
 # devops example
 
+![제목 없는 다이어그램 (1)](https://user-images.githubusercontent.com/5036939/56005289-9907eb80-5d0a-11e9-8b67-06d40d9e3ba5.png)
+
+
 ## 요구사항
 
 - [x] 웹 애플리케이션: spring-boot-sample-web-ui
