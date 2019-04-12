@@ -17,20 +17,18 @@
 - [ ] container scale in/out
 - [ ] 무중단 배포 동작 구현
 
-
-## 사전 작업
-
-```bash
-docker network create devops
-```
-
 ## 실행하기
 
 ```
-devops.sh start
-devops.sh stop
-devops.sh restart
-devops.sh deploy
+git clone https://github.com/wicksome/devops-example.git
+cd devops-example/
+
+docker network create devops
+
+./devops.sh start
+./devops.sh stop
+./devops.sh restart
+./devops.sh deploy
 ```
 
 # 활용방안
