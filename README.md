@@ -48,10 +48,3 @@ docker network create devops
         ...
         server springboot01 <vm_server_id>:<port> check
     ```
-
-# 기타 참고 스크립트
-
-```
-dkc down && dkc build --no-cache && dkc up -d
-apt-get update && apt-get install -y net-tools && apt-get install -y iputils-ping
-```
